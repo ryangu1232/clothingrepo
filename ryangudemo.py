@@ -3,7 +3,6 @@ import requests
 from bs4 import BeautifulSoup 
 
 #city that is used 
-
 city  = input('''
 What city would you like to research?
 ''')
@@ -11,7 +10,7 @@ What city would you like to research?
 # create url to be used in searches
 url = "https://www.google.com/search?q="+"weather"+city
 
-
+#uses requests package to get content from website
 html = requests.get(url).content
  
 # getting the data and putting it in soup
