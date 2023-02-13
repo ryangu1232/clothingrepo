@@ -14,6 +14,7 @@ url = "http://api.weatherapi.com/v1/current.json?key=9797749cd676493384422070923
 response = requests.get(url)
 json = response.json()
 ##cant use .location
+print(response)
 print(json["location"])
 #output is the location of this weather information is the city of london specifically lat:51.52 lon:-0.11 at the current time
 temperature = json["current"]["temp_f"]
