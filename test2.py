@@ -19,9 +19,9 @@ country_list = []
 for country_info in responseinfo['Countries']:
  country_list.append([country_info['Country'], country_info['TotalDeaths']])
 
-print(country_list)
+#print(country_list)
 
 import pandas as pd
 
-country_df = pd.DataFrame(data=country_list, columns=['Country', 'TotalDeaths'])
-print(country_df.head(19))
+country_df = pd.DataFrame(data=country_list, columns=['Country', 'Total_Confirmed'])
+print(country_df.head(10))
