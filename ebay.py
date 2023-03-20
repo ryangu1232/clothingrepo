@@ -7,12 +7,13 @@ response = requests.get(ebay_url)
 soup = BeautifulSoup(response.text, "html.parser")
 ##print(soup) succsesful in bringing html code from ebay website
 
-tags = soup.findAll(class_ = "s-item__title")
-#print(tags[1].text) working gives title of 1 
+tagscost = soup.findAll(class_ = "s-item__price")
+tagsname = soup.findAll(class_ = "s-item__title")
+secondhand = soup.findAll(class_ = "SECONDARY_INFO")
 
 yeezy_gaplisting = []
-for i in range(1,len(tags)):
-    yeezy_gaplisting.append(tags[i].text)
+for i in range(1,(len(tagsname))):
+    yeezy_gaplisting.append(tagsname[i].text +" : "+ tagscost[i].text + " wear:  "+ secondhand[i].text)
 print(yeezy_gaplisting)
 
 import pandas as pd
