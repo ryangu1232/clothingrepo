@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-ebay_url = 'https://www.ebay.com/sch/yeezy-gap'
+ebay_url = 'https://www.ebay.com/sch/yeezy-gap-hoodie'
 response = requests.get(ebay_url)
 
 #print(response) working = 200
