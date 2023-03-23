@@ -15,14 +15,14 @@ Packages used:
     - pandas
 
 Indivudual files and uses:
-    - ebay.py  
-        - takes a ebay search link and converts python data into a readable csv file. 
-    - pictures.py
-        - takes a link of image, creates and opens a file, and drops the image inside of the file. 
-    - ryangudemo.py
-        - asks user how many cities they would like to compare. Takes user input, displays weather data.
-    - savedcode.py 
-        - uses api to extract covid data from countries and creates an organized table in alphabetical order. 
+"- ebay.py  
+    - takes a ebay search link and converts python data into a readable csv file. 
+"- pictures.py
+    - takes a link of image, creates and opens a file, and drops the image inside of the file. 
+"- ryangudemo.py
+    - asks user how many cities they would like to compare. Takes user input, displays weather data.
+"- savedcode.py 
+    - uses api to extract covid data from countries and creates an organized table in alphabetical order. 
     
 
 Updates: 2/13/2023
