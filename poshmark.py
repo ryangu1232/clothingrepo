@@ -18,6 +18,7 @@ tagscost = soup.findAll(class_ = "p--t--1 fw--bold")
 yeezy_gaplisting = []
 for i in range(1,(len(tagsname))):
    # (DOESNT WORK) yeezy_gaplisting.append(str(tagsname[i].text).translate({ord(c): None for c in string.whitespace}))
+    #origional code  yeezy_gaplisting.append(tagsname[i].text +" : "+ tagscost[i].text + " wear:  ")
     yeezy_gaplisting.append(" ".join(str(tagsname[i].text).split())+ " ".join(str(tagscost[i].text).split()))
 # poshmarks title is very hard to seperate from other information they give, without this additional code 
 # there would be multiple lines and spaces which would make it harder to combine it with other lists in websites. 
