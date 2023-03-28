@@ -15,6 +15,8 @@ Packages used:
     - pandas
 
 Indivudual files and uses:
+- merge.py
+    - takes csv files produced by ebay.py and poshmark.py and combines them together. Still unsure on how to create filters/sort prices, etc. 
 - ebay.py  
     - takes a ebay search link and converts python data into a readable csv file. 
 - pictures.py
