@@ -15,6 +15,8 @@ Packages used:
     - pandas
 
 Indivudual files and uses:
+- merge.py
+    - takes csv files produced by ebay.py and poshmark.py and combines them together. Still unsure on how to create filters/sort prices, etc. 
 - ebay.py  
     - takes a ebay search link and converts python data into a readable csv file. 
 - pictures.py
@@ -29,3 +31,6 @@ Updates: 2/13/2023
 Choudhury's code so far can pull covid cases from the internet as well as deaths. Gu's code asks for user input and pulls weather data. Have not worked with clothing yet as we are still learning how to use website API 
 *testing a commit from vs code for the readme
 >>>>>>> 394549b0a538242183bda9ff507ea763ea86a29c
+
+Updates 3/27/2023
+merge.py takes the csv files that grailed.py and ebay.py make and merges them together so that users can see the options that are available for each. 
