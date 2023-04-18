@@ -1,11 +1,6 @@
 import requests
 import re
 from bs4 import BeautifulSoup
-import pandas as pd
-import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
-
 ebay_url = 'https://www.ebay.com/sch/yeezy-gap-hoodie'
 response = requests.get(ebay_url)
 
