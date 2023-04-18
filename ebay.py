@@ -1,6 +1,9 @@
 import requests
 import re
 from bs4 import BeautifulSoup
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 ebay_url = 'https://www.ebay.com/sch/yeezy-gap-hoodie'
 response = requests.get(ebay_url)
 
@@ -64,7 +67,7 @@ plt.boxplot([df[df['Wear'] == 'Brand New']['Cost'],
              df[df['Wear'] == 'Pre-owned']['Cost']],
             labels=['Brand New', 'New', 'Pre-owned'])
 
-# set the title and axis labels
+
 plt.title('Cost Distribution by Wear')
 plt.xlabel('Wear')
 plt.ylabel('Cost')
@@ -72,6 +75,6 @@ plt.ylabel('Cost')
 # save the plot to a file
 fig.savefig('wear_cost_boxplot.png')
 
-# calculate the correlation coefficient between 'Cost' and 'Wear'
+# correlation coefficient 
 corr_coef = df['Cost'].corr(df['Wear'], method='spearman')
 print(f"Correlation coefficient between 'Cost' and 'Wear': {corr_coef:.2f}")
