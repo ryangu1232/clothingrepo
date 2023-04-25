@@ -1,50 +1,76 @@
 import requests
 import json
 
-#creates api endpoint when calls are fufilled
-endpoint = 'https://svcs.ebay.com/services/search/FindingService/v1'
+# eBay API endpoint for the Finding API
 
-#Ebay API key
-app_id = 'Ebay API Key (currently pending approval)'
+api_endpoint = 'https://svcs.ebay.com/services/search/FindingService/v1'
 
 
-#Headers for the request
+
+# eBay API credentials
+
+app_id = 'your_app_id_here'
+
+# Set up the request headers
+
 headers = {
-     'X-EBAY-SOA-OPERATION-NAME': 'findItemsAdvanced',
-     'X-EBAY-SOA-SERVICE-NAME': 'FindingService',
-     'X-EBAY-SOA-SERVICE-VERSION': '1.0.0',
-     'X-EBAY-SOA-REQUEST-DATA-FORMAT': 'JSON',
-     'X-EBAY-SOA-GLOBAL-ID': 'EBAY-US',
-     'X-EBAY-SOA-SECURITY-APPNAME': app_id
+
+    'X-EBAY-SOA-OPERATION-NAME': 'findItemsAdvanced',
+
+    'X-EBAY-SOA-SERVICE-NAME': 'FindingService',
+
+    'X-EBAY-SOA-SERVICE-VERSION': '1.0.0',
+
+    'X-EBAY-SOA-REQUEST-DATA-FORMAT': 'JSON',
+
+    'X-EBAY-SOA-GLOBAL-ID': 'EBAY-US',
+
+    'X-EBAY-SOA-SECURITY-APPNAME': app_id
+
 }
 
-#Setse up request
+# Set up the request body
+
 payload = {
-    'keywords': 'iphone', #replace with search terms
+
+    'keywords': 'iphone', # replace with your search keywords
     'paginationInput': {
-        'entriesPerPage': 10, #replace with number of search results
-        'pageNumber': 1
-     },
+    'entriesPerPage': 10, # replace with your desired number of results
+    'pageNumber': 1
+    },
     'outputSelector': ['PictureURLLarge'] # retrieve only large pictures
 }
 
+
 # Make the API request
-response = requests.post(endpoint, headers=headers, json=payload)
+
+response = requests.post(api_endpoint, headers=headers, json=payload)
+
+response.raise_for_status()
+
 
 # Parse the JSON response
+
 data = json.loads(response.text)
 
-#extracts picture url's
-picture_urls = []
-for item in data['findItemsAdvancedResponse'][0]['searchResult'][0]['item']:
-    if 'galleryURL' in item:
-        picture_urls.append(item['galleryURL'][0])
+
+# Extract the picture URLs from the response
+
+search_result = data['findItemsAdvancedResponse'][0]['searchResult'][0]
+
+if 'item' in search_result:
+    picture_urls = [item.get('galleryURL', [])[0] for item in search_result['item']]
+
+else:
+    picture_urls = []
 
 
-#downloads pictures
+# Download the pictures
 for i, picture_url in enumerate(picture_urls):
     response = requests.get(picture_url)
+    response.raise_for_status()
     with open(f'image_{i}.jpg', 'wb') as f:
         f.write(response.content)
 
 
+print(f'Downloaded {len(picture_urls)} pictures')
