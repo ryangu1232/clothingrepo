@@ -34,3 +34,10 @@ Choudhury's code so far can pull covid cases from the internet as well as deaths
 
 Updates 3/27/2023
 merge.py takes the csv files that grailed.py and ebay.py make and merges them together so that users can see the options that are available for each. 
+
+Updates 4/25/2023
+ebayimages: 
+    - includes try-except blocks to catch and handle different types of errors that can occur during the API request
+    - response parsing
+    - image downloads 
+    - continues downloading pictures even if one or more requests fail.    
