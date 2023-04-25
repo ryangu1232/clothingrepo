@@ -51,3 +51,10 @@ ebay.py recieved significant changes with the "Cost" list. Now all values are in
 ebay.py also has a lot of stastical analysis which in the future can allow users to compare ebay with other platforms. (box plot was also created)
 Readme was updated. 
 Other files remain unchanged. 
+
+Updates 4/25/2023
+ebayimages: 
+    - includes try-except blocks to catch and handle different types of errors that can occur during the API request
+    - response parsing
+    - image downloads 
+    - continues downloading pictures even if one or more requests fail.    
