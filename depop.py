@@ -24,7 +24,6 @@ print(len(tagscost))
 tags = soup.find_all('a', class_='styles__ProductCard-sc-__sc-13q41bc-3 fBWGBN')
 
 
-
 yeezy_gaplisting = []
 for i in range(0, len(tagscost)):
     yeezy_gaplisting.append(href[i])
