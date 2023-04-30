@@ -110,6 +110,7 @@ for i in range(len(yeezy_gaplisting)):
         categories[category] = []
     categories[category].append(price)
 
+    
 fig, ax = plt.subplots(figsize=(10, 5))
 plt.hist(df['Cost'], bins=50)
 # create a histogram for each category
