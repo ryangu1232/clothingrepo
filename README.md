@@ -4,27 +4,36 @@ clothingrepo
 clothing test test test 
 =======
 # clothingrepo
-
+ABOUT: 
 A website that combines clothing, accessories, and other items sold on second-hand merchant sites together. 
 
+PROGRESS:
 Currently, code is about halfway done and is able to pull individual search results given the search link. For example, upon putting in the link in ebay.py, the code will display the top search results on ebay. In the future, we will work to integrate ebay.py, grailed.py, together. 
+UPDATE 4/17: We are 75% done we are able to integrate 2 webscrapers together, and added some statistical analysis. 
 
-Packages used:
-    - import requests
-    - from bs4 import beautifulsoup
-    - pandas
+GET STARTED: 
+To run this program, you will need to have Python installed on your computer. You will also need to install the following Python libraries:
 
-Indivudual files and uses:
+requests
+beautifulsoup4
+pandas
+numpy
+matplotlib
+
+To install these libraries, you can use pip, the Python package manager
+
+INDIVIDUAL FILE USES:
 - merge.py
     - takes csv files produced by ebay.py and poshmark.py and combines them together. Still unsure on how to create filters/sort prices, etc. 
 - ebay.py  
-    - takes a ebay search link and converts python data into a readable csv file. 
-- pictures.py
-    - takes a link of image, creates and opens a file, and drops the image inside of the file. 
-- ryangudemo.py
-    - asks user how many cities they would like to compare. Takes user input, displays weather data.
-- savedcode.py 
-    - uses api to extract covid data from countries and creates an organized table in alphabetical order. 
+    - The program will scrape eBay listings for Yeezy Gap Hoodies and create a dataset called yeezy-ebay.xls. It will also generate a boxplot called wear_cost_boxplot.png showing the distribution of prices by wear condition.
+    - Gives further analytics such as dataset summary, count number of listings, and finds the correlation coefficient between Wear and Cost. 
+
+- poshmark.py
+    - same thing as ebay.py but without the statstics or updates since 4/3 and with poshmark listings isntead of ebay ones. 
+
+-pictures file
+    - Ryan gu is working on turning pictures from urls into seeable images. Code does not work due to api key which is being requested right now. 
     
 
 Updates: 2/13/2023
@@ -34,3 +43,18 @@ Choudhury's code so far can pull covid cases from the internet as well as deaths
 
 Updates 3/27/2023
 merge.py takes the csv files that grailed.py and ebay.py make and merges them together so that users can see the options that are available for each. 
+
+Updates 4.17
+
+Pictures file is being created so the final listing will have both the name, cost, wear, and the image. 
+ebay.py recieved significant changes with the "Cost" list. Now all values are integers. 
+ebay.py also has a lot of stastical analysis which in the future can allow users to compare ebay with other platforms. (box plot was also created)
+Readme was updated. 
+Other files remain unchanged. 
+
+Updates 4/25/2023
+ebayimages: 
+    - includes try-except blocks to catch and handle different types of errors that can occur during the API request
+    - response parsing
+    - image downloads 
+    - continues downloading pictures even if one or more requests fail.    
