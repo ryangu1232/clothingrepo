@@ -1,32 +1,44 @@
 import requests
 import string
 from bs4 import BeautifulSoup
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 
-inp = input('WHAT ITEM ARE YOU SERACHING FOR?')
+
+inp = input('WHAT ITEM ARE YOU SEARCHING FOR?')
 
 ebay_url = 'https://poshmark.com/search?query=' + inp + '%20&type=listings&src=dir'
 response = requests.get(ebay_url)
 
-#print(response) working = 200
 soup = BeautifulSoup(response.text, "html.parser")
-##print(soup) succsesful in bringing html code from ebay website
 
-tagsname = soup.findAll(class_ = "title__condition__container")
-tagscost = soup.findAll(class_ = "p--t--1 fw--bold")
-
+tagsname = soup.findAll(class_="title__condition__container")
+tagscost = soup.findAll(class_="p--t--1 fw--bold")
+listing_sizes = soup.findAll(class_="tile__details__pipe__size")
 
 yeezy_gaplisting = []
-for i in range(1,(len(tagsname))):
-   # (DOESNT WORK) yeezy_gaplisting.append(str(tagsname[i].text).translate({ord(c): None for c in string.whitespace}))
-    #origional code  yeezy_gaplisting.append(tagsname[i].text +" : "+ tagscost[i].text + " wear:  ")
-    yeezy_gaplisting.append(" ".join(str(tagsname[i].text).split())+ " ".join(str(tagscost[i].text).split()))
-# poshmarks title is very hard to seperate from other information they give, without this additional code 
-# there would be multiple lines and spaces which would make it harder to combine it with other lists in websites. 
-# replace the code with the matching line in ebay.py to see the difference in output. 
-# DOESNT WORK yeezy_gaplisting = [x.strip('\n            ') for x in yeezy_gaplisting]
+for i in range(1, len(tagsname)):
+    title = " ".join(str(tagsname[i].text).split())
+    yeezy_gaplisting.append([title])
 
-print(yeezy_gaplisting)
+yeezy_gaplistingsize = []
+for i in range(1, len(tagsname)):
+    if len(listing_sizes) > i:
+        size = " ".join(str(listing_sizes[i].text).split())
+    else:
+        size = ''
+    yeezy_gaplistingsize.append([size])
 
-import pandas as pd
-df = pd.DataFrame(yeezy_gaplisting, columns=['yeezy_gaplisting'])
-df.to_csv(inp+'-listing-ebay.csv')
+yeezy_gaplistingcost = []
+for i in range(1, len(tagsname)):
+    price_text = " ".join(str(tagscost[i].text).split())
+    price = float(''.join(filter(str.isdigit, price_text))) 
+    yeezy_gaplistingcost.append([price])
+
+print(yeezy_gaplistingsize)
+
+df = pd.DataFrame(np.column_stack([yeezy_gaplisting, yeezy_gaplistingcost, yeezy_gaplistingsize]), columns=['Item', 'Cost', 'size'])
+df.to_csv(inp + '-poshmark.xls')
+
+print(df.describe())
