@@ -34,7 +34,7 @@ for img_tag in img_tags:
     image_data.append([img_url, file_name])
 
 
-# close the web browser
+# closes the web browser
 driver.quit()
 
 
