@@ -19,6 +19,7 @@ beautifulsoup4
 pandas
 numpy
 matplotlib
+selenium 
 
 To install these libraries, you can use pip, the Python package manager
 
@@ -31,10 +32,12 @@ INDIVIDUAL FILE USES:
 
 - poshmark.py
     - same thing as ebay.py but without the statstics or updates since 4/3 and with poshmark listings isntead of ebay ones. 
+    - as of 5/2 poshmark.py now is organized the same way as ebay which has a numerical value for price and also pulls the size. 
+        - unlike ebay.py poshmarks website does not have wear listed so a lot of the statsitcs can 
 
 -pictures file
     - Ryan gu is working on turning pictures from urls into seeable images. Code does not work due to api key which is being requested right now. 
-    
+    -updated now working but needs to install selenium 
 
 Updates: 2/13/2023
 Choudhury's code so far can pull covid cases from the internet as well as deaths. Gu's code asks for user input and pulls weather data. Have not worked with clothing yet as we are still learning how to use website API 
