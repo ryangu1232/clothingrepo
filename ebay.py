@@ -16,12 +16,18 @@ tagscost = soup.findAll(class_="s-item__price")
 tagsname = soup.findAll(class_="s-item__title")
 secondhand = soup.findAll(class_="SECONDARY_INFO")
 tagscat = soup.findAll(class_="s-item__subtitle")
-
+tagsimage = soup.findAll(class_ = "s-item__image-wrapper image-treatment")
 #creating tags 
 
 yeezy_gaplisting = []
 for i in range(1, len(tagsname)):
     yeezy_gaplisting.append(tagsname[i].text)
+
+yeezy_gaplistingimg = []
+for tag in tagsimage[1:]:
+    img_url = tag.find('img')['src']
+    yeezy_gaplistingimg.append(img_url)
+    #print(img_url)
 
 yeezy_gaplistingcost = []
 for i in range(1, len(tagsname)):
@@ -49,7 +55,8 @@ for i in range(1, len(tagsname)):
 #creating lists
 
 
-df = pd.DataFrame(np.column_stack([yeezy_gaplisting, prices, yeezy_gaplistinguse, yeezy_gaplistingcategory]), columns=['Item', 'Cost', 'Wear', 'Category'])
+
+df = pd.DataFrame(np.column_stack([yeezy_gaplisting, prices, yeezy_gaplistinguse, yeezy_gaplistingcategory, yeezy_gaplistingimg]), columns=['Item', 'Cost', 'Wear', 'Category', "ImgLink"])
 df["Cost"] = pd.to_numeric(df["Cost"], errors="coerce")
 df.to_csv('yezy-ebay.xls')
 
