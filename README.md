@@ -61,3 +61,8 @@ ebayimages:
     - response parsing
     - image downloads 
     - continues downloading pictures even if one or more requests fail.    
+    
+Update 5/16/2023
+    - WORKINGpictures.py code finally works
+    - takes images from ebay search query and prints the link. 
+    - code takes link of images and prints them when it is called on. 
