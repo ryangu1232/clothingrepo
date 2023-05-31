@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 data1 = pd.read_csv('nike-poshmark.xls')
-data2 = pd.read_csv('yezy-ebay.xls')
+data2 = pd.read_csv('nike-ebay.xls')
 
 
 output4 = pd.merge(data1, data2, how='outer')
