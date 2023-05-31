@@ -1,11 +1,11 @@
 <<<<<<< HEAD
 clothingrepo
 
-clothing test test test 
+clothing
 =======
 # clothingrepo
 ABOUT: 
-A website that combines clothing, accessories, and other items sold on second-hand merchant sites together. 
+A program that combines clothing, accessories, and other items sold on second-hand merchant sites together. 
 
 PROGRESS:
 Currently, code is about halfway done and is able to pull individual search results given the search link. For example, upon putting in the link in ebay.py, the code will display the top search results on ebay. In the future, we will work to integrate ebay.py, grailed.py, together. 
@@ -37,9 +37,8 @@ INDIVIDUAL FILE USES:
     - as of 5/2 poshmark.py now is organized the same way as ebay which has a numerical value for price and also pulls the size. 
         - unlike ebay.py poshmarks website does not have wear listed so a lot of the statsitcs can 
 
--pictures file
-    - Ryan gu is working on turning pictures from urls into seeable images. Code does not work due to api key which is being requested right now. 
-    -updated now working but needs to install selenium 
+-WORKINGPICTURES.py file
+    - takes image link from merge.csv to and puts it in iamgefordemo.png
 
 Updates: 2/13/2023
 Choudhury's code so far can pull covid cases from the internet as well as deaths. Gu's code asks for user input and pulls weather data. Have not worked with clothing yet as we are still learning how to use website API 
@@ -70,5 +69,5 @@ Update 5/16/2023
     - code takes link of images and prints them when it is called on. 
     
 Update 5/30/2023
-    - WORKINGPICTURES.py now takes the link from merge.csv and displays the picture in "iamgefordemo:notredame.png
-    - 
+    - WORKINGPICTURES.py now takes the link from merge.csv and displays the picture in "imagefordemo:notredame.png"
+
