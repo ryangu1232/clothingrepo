@@ -58,7 +58,10 @@ for i in range(1, len(tagsname)):
 
 df = pd.DataFrame(np.column_stack([yeezy_gaplisting, prices, yeezy_gaplistinguse, yeezy_gaplistingcategory, yeezy_gaplistingimg]), columns=['Item', 'Cost', 'Wear', 'Category', "ImgLink"])
 df["Cost"] = pd.to_numeric(df["Cost"], errors="coerce")
-df.to_csv('yezy-ebay.xls')
+
+csv_filename = f'{input.lower()}-ebay.xls'
+df.to_csv(csv_filename)
+
 
 #combine lists to create df
 
