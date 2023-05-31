@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
 
-data2 = pd.read_csv('yezy-ebay.xls')
+data2 = pd.read_csv('merge.csv')
 
 row_number = int(input('Enter the row number: '))
 

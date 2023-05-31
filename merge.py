@@ -19,7 +19,7 @@ df.to_csv('mergecost.csv')
 
 print(df)
 print(df.describe())
-cf = pd.read_csv('yezy-ebay.xls')
+cf = pd.read_csv('nike-ebay.xls')
 print(cf.describe())
 
 df_mean_cost = df['Cost'].mean()

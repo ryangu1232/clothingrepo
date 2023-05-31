@@ -55,7 +55,7 @@ for i in range(1, len(tagsname)):
     yeezy_gaplistinglikes.append([likes2])
 
 
-df = pd.DataFrame(np.column_stack([yeezy_gaplisting, yeezy_gaplistingcost, yeezy_gaplistingsize, yeezy_gaplistinglikes, yeezy_gaplistingimg]), columns=['Item', 'Cost', 'size', 'Likes', 'Images'])
+df = pd.DataFrame(np.column_stack([yeezy_gaplisting, yeezy_gaplistingcost, yeezy_gaplistingsize, yeezy_gaplistinglikes, yeezy_gaplistingimg]), columns=['Item', 'Cost', 'size', 'Likes', 'ImgLink'])
 df.to_csv(inp + '-poshmark.xls')
 
 
