@@ -25,12 +25,14 @@ To install these libraries, you can use pip, the Python package manager
 
 INDIVIDUAL FILE USES:
 - merge.py
-    - takes csv files produced by ebay.py and poshmark.py and combines them together. Still unsure on how to create filters/sort prices, etc. 
-- ebay.py  
+    - takes csv files produced by ebay.py and poshmark.py and combines them together.
+    - creates merge.csv
+    - sorts based on price,item, image, 
+- ebay+stats.py  
     - The program will scrape eBay listings for Yeezy Gap Hoodies and create a dataset called yeezy-ebay.xls. It will also generate a boxplot called wear_cost_boxplot.png showing the distribution of prices by wear condition.
-    - Gives further analytics such as dataset summary, count number of listings, and finds the correlation coefficient between Wear and Cost. 
+    - Gives further analytics such as dataset summary, count number of listings, and finds the correlation coefficient between Wear and  Cost. 
 
-- poshmark.py
+- poshmark+stats.py
     - same thing as ebay.py but without the statstics or updates since 4/3 and with poshmark listings isntead of ebay ones. 
     - as of 5/2 poshmark.py now is organized the same way as ebay which has a numerical value for price and also pulls the size. 
         - unlike ebay.py poshmarks website does not have wear listed so a lot of the statsitcs can 
@@ -66,3 +68,7 @@ Update 5/16/2023
     - WORKINGpictures.py code finally works
     - takes images from ebay search query and prints the link. 
     - code takes link of images and prints them when it is called on. 
+    
+Update 5/30/2023
+    - WORKINGPICTURES.py now takes the link from merge.csv and displays the picture in "iamgefordemo:notredame.png
+    - 
