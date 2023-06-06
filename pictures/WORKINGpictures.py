@@ -47,7 +47,7 @@ if row_number >= 0 and row_number < len(data2):
 
         if picture.status_code == 200:
 
-            with open('imagefordemo/notredame.png', 'wb') as f:
+            with open('imagefordemo:', 'wb') as f:
 
                 f.write(picture.content)
 
