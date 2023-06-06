@@ -6,7 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-inp = input('WHAT ITEM ARE YOU SEARCHING FOR?')
+inp = input('Enter search term:')
 
 ebay_url = 'https://poshmark.com/search?query=' + inp + '%20&type=listings&src=dir'
 response = requests.get(ebay_url)
