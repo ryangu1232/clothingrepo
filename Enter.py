@@ -5,6 +5,6 @@ def write_word_to_csv(word):
         writer = csv.writer(file)
         writer.writerow([word])
 
-user_word = input("Enter a searchterm: ")
+user_word = input("Enter a search term: ")
 
 write_word_to_csv(user_word)
