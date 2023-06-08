@@ -39,6 +39,10 @@ INDIVIDUAL FILE USES:
 
 -WORKINGPICTURES.py file
     - takes image link from merge.csv to and puts it in iamgefordemo.png
+    
+-ENTER.py file
+    - relaces ebay+stats.py and poshmark+stats.py input
+    - allows users to input one search term in ENTER.py instead of manually inputing it into both ebay and poshmark.py 
 
 Updates: 2/13/2023
 Choudhury's code so far can pull covid cases from the internet as well as deaths. Gu's code asks for user input and pulls weather data. Have not worked with clothing yet as we are still learning how to use website API 
