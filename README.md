@@ -23,6 +23,16 @@ selenium
 
 To install these libraries, you can use pip, the Python package manager
 
+HOW TO USE PROGRAM:
+
+After downloading all the necessary libraries, run Enter.py and type in a search term you would like from ebay and poshmark. 
+Then run ebay-stats.py and poshmark-stats.py which will give you some statsitcs on the searched item. 
+After that go to merge.py to merge the two documents in a file called merge.csv, in this file you can additionally look for filtered items based on price. 
+Lastly, go to the workingpictures.py to retrieve a picture of a specified file from merge.csv. 
+
+With this program you can look for a item that you like on both ebay and poshmark at the same time, and when an item intrests you you can find the image of it too. 
+
+
 INDIVIDUAL FILE USES:
 - merge.py
     - takes csv files produced by ebay.py and poshmark.py and combines them together.
