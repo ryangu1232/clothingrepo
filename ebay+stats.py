@@ -4,10 +4,38 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import requests
+import string
+from bs4 import BeautifulSoup
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 
-input = input("Enter search term: ")
-ebay_url = f'https://www.ebay.com/sch/{input.replace(" ", "+")}'
+import csv
+
+def read_csv_file(filename):
+    data = []
+    with open(filename, 'r') as file:
+        reader = csv.reader(file)
+        for row in reader:
+            data.append(row[0])  # Assuming each row contains a single word
+    return data
+
+# Specify the CSV file to read
+csv_filename = 'words.csv'
+
+# Read the data from the CSV file and store it in a variable
+words = read_csv_file(csv_filename)
+
+# Convert the list of words into a string without quotes and brackets
+words_string = ', '.join(words)
+
+# Print the resulting string
+
+ebay_url = 'https://www.ebay.com/sch/' + words_string 
 response = requests.get(ebay_url)
+
+
 #getting input/ bs html link
 
 soup = BeautifulSoup(response.text, "html.parser")
@@ -59,7 +87,7 @@ for i in range(1, len(tagsname)):
 df = pd.DataFrame(np.column_stack([yeezy_gaplisting, prices, yeezy_gaplistinguse, yeezy_gaplistingcategory, yeezy_gaplistingimg]), columns=['Item', 'Cost', 'Wear', 'Category', "ImgLink"])
 df["Cost"] = pd.to_numeric(df["Cost"], errors="coerce")
 
-csv_filename = f'{input.lower()}-ebay.xls'
+csv_filename = f'{words_string.lower()}-ebay.xls'
 df.to_csv(csv_filename)
 
 

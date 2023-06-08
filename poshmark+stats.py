@@ -5,10 +5,28 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
+import csv
 
-inp = input('Enter search term:')
+def read_csv_file(filename):
+    data = []
+    with open(filename, 'r') as file:
+        reader = csv.reader(file)
+        for row in reader:
+            data.append(row[0])  # Assuming each row contains a single word
+    return data
 
-ebay_url = 'https://poshmark.com/search?query=' + inp + '%20&type=listings&src=dir'
+# Specify the CSV file to read
+csv_filename = 'words.csv'
+
+# Read the data from the CSV file and store it in a variable
+words = read_csv_file(csv_filename)
+
+# Convert the list of words into a string without quotes and brackets
+words_string = ', '.join(words)
+
+# Print the resulting string
+print(words_string)
+ebay_url = 'https://poshmark.com/search?query=' + words_string + '%20&type=listings&src=dir'
 response = requests.get(ebay_url)
 
 soup = BeautifulSoup(response.text, "html.parser")
@@ -56,7 +74,7 @@ for i in range(1, len(tagsname)):
 
 
 df = pd.DataFrame(np.column_stack([yeezy_gaplisting, yeezy_gaplistingcost, yeezy_gaplistingsize, yeezy_gaplistinglikes, yeezy_gaplistingimg]), columns=['Item', 'Cost', 'size', 'Likes', 'ImgLink'])
-df.to_csv(inp + '-poshmark.xls')
+df.to_csv(words_string + '-poshmark.xls')
 
 
 print(df.describe())

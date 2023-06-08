@@ -15,8 +15,6 @@ row_number = int(input('Enter the row number: '))
 
 
 
-# Check if there is a row here
-
 if row_number >= 0 and row_number < len(data2):
 
    
@@ -25,15 +23,9 @@ if row_number >= 0 and row_number < len(data2):
 
 
 
-
-    # Get the image link from the row data
-
     image_link = row_data['ImgLink']
 
 
-
-
-    # Output the image link
 
     print(image_link)
 
