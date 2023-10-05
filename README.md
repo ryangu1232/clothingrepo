@@ -7,7 +7,7 @@ clothing
 ABOUT: 
 A program that combines clothing, accessories, and other items sold on second-hand merchant sites together. 
 
-PROGRESS:
+#PROGRESS:
 Currently, code is about halfway done and is able to pull individual search results given the search link. For example, upon putting in the link in ebay.py, the code will display the top search results on ebay. In the future, we will work to integrate ebay.py, grailed.py, together. 
 UPDATE 4/17: We are 75% done we are able to integrate 2 webscrapers together, and added some statistical analysis. 
 
